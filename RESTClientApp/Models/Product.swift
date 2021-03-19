@@ -11,12 +11,6 @@ struct Picture: Codable {
     var id: Int
     var small: String
     var large: String
-    
-    init(id: Int, small: String, large: String) {
-        self.id = id
-        self.small = small
-        self.large = large
-    }
 }
 
 struct Product: Identifiable, Codable {
@@ -26,15 +20,6 @@ struct Product: Identifiable, Codable {
     var name: String? // some products in example data were missing this property which crashed JSON parsing
     var price: Double
     var pictures: [Picture]
-    
-    init(id: Int, brand: String, caption: String, name: String, price: Double, pictures: [Picture]) {
-        self.id = id
-        self.brand = brand
-        self.caption = caption
-        self.name = name
-        self.price = price
-        self.pictures = pictures
-    }
     
     func getFullName() -> String {
         return self.brand + "\n" + self.caption + "\n" + (self.name ?? "")
